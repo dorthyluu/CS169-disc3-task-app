@@ -1,0 +1,14 @@
+<h1> Hello peeps :)</h1>
+
+<%= form_for @task do |f| %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    
+    <%= f.submit %>
+<% end %>
+
+<ul>
+<% @tasks.each do |task| %>
+    <li> <%= task.description %> </li>
+<% end %>
+</ul>
