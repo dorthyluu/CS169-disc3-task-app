@@ -7,8 +7,16 @@
     <%= f.submit %>
 <% end %>
 
-<ul>
-<% @tasks.each do |task| %>
-    <li> <%= task.description %> </li>
+<h2> Non-completed tasks </h2>
+<ul id="non_completed_tasks">
+<% @noncompleted_tasks.each do |task| %>
+    <li> <%= link_to("#{task.description}", edit_task_path(task)) %> </li>
+<% end %>
+</ul>
+
+<h2> Completed tasks </h2>
+<ul id="completed_tasks">
+<% @completed_tasks.each do |task| %>
+    <li> <%= link_to("#{task.description}", edit_task_path(task)) %> </li>
 <% end %>
 </ul>

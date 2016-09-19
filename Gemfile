@@ -37,6 +37,12 @@ group :development, :test do
   gem 'byebug'
 end
 
+group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'autotest-rails'
+end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
