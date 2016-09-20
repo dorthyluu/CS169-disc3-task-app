@@ -5,7 +5,7 @@ end
 When /^I create the following tasks: (.*)$/ do |tasks|
     tasks = tasks.split(', ')
     tasks.each do |task|
-        task.gsub('"', '')
+        task.gsub!('"', '')
         fill_in("task_description", with: task)
         click_button("Create Task")
     end
