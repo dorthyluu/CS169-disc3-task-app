@@ -17,6 +17,12 @@ When /^I complete the task "(.*)"$/ do |task|
     click_button("Update Task")
 end
 
+When /^I make the task "(.*)" as urgent$/ do |task|
+    click_on(task)
+    check("task_urgent")
+    click_button("Update Task")
+end
+
 When /^I should see the task "(.*)" under "(.*)"$/ do |task, id|
     within(id) do
         assert page.has_content?(task)

@@ -8,11 +8,19 @@
 <% end %>
 
 <h2> Non-completed tasks </h2>
-<ul id="non_completed_tasks">
-<% @noncompleted_tasks.each do |task| %>
-    <li> <%= link_to "#{task.description}", edit_task_path(task) %>
-<% end %>    
-</ul>
+<div id="non_completed_tasks">
+    <% @noncompleted_tasks.each do |urgency, tasks| %>
+        <div id=<%=urgency %> >
+            <h3><%= urgency.gsub(/_/, ' ').capitalize %></h3>
+            <ul>
+                <% tasks.each do |task| %>
+                    <li> <%= link_to "#{task.description}", edit_task_path(task) %> </li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %> 
+</div>
+
 
 <h2> Completed tasks </h2>
 <ul id="completed_tasks">
