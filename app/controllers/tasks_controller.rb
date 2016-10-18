@@ -12,8 +12,11 @@ class TasksController < ApplicationController
     end
     
     def create
-        Task.create(description: params[:task][:description], user: current_user)
-        redirect_to root_path
+        @task = Task.create(description: params[:task][:description], user: current_user)
+        respond_to do |format|
+            format.html { redirect_to root_path }
+            format.json { render :json => @task }
+        end
     end
     
     def edit
