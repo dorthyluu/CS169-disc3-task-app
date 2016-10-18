@@ -1,6 +1,6 @@
 <h1> Hello peeps :)</h1>
 
-<%= form_for @task do |f| %>
+<%= form_for @task, remote: true do |f| %>
     <%= f.label :description %>
     <%= f.text_field :description %>
     
